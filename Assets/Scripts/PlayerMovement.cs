@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speedPlayer = 3f;
-    [SerializeField] float run = 6f;
-    [SerializeField] int livePlayer = 3;
-    [SerializeField] float cameraAxisX = 0f;
-    
+    public Animator anim;
+    private Rigidbody rb;
+    public LayerMask layerMask;
+    public bool grounded;
+    float cameraAxisX = 0f;
+   
     // Start is called before the first frame update
     void Start()
     {
-        
+        this.rb = GetComponent<Rigidbody>();
+       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        Grounded();
         Jump();
+        Move();
         Camera();
+        
+        if (Input.GetMouseButtonDown(0))
+        {
+            anim.SetTrigger("Attack");
+        }
+
+
     }
 
     private void Camera()
@@ -33,28 +44,47 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && this.grounded)
         {
-            transform.Translate(Vector3.up * speedPlayer);
+            this.rb.AddForce(Vector3.up * 4, ForceMode.Impulse);
         }
+
     }
 
-    private void Movement()
+
+    private void Grounded()
     {
-        float vAxis = Input.GetAxisRaw("Vertical");
-        transform.Translate(speedPlayer * new Vector3(0, 0, vAxis) * Time.deltaTime);
+        if (Physics.CheckSphere(this.transform.position + Vector3.down, 0.2f, layerMask))
 
-        float hAxis = Input.GetAxisRaw("Horizontal");
-        transform.Translate(speedPlayer * new Vector3(hAxis, 0, 0) * Time.deltaTime);
-
-        if (Input.GetKey(KeyCode.LeftShift))
         {
-            speedPlayer = run;
+            this.grounded = true;
         }
+
         else
+
         {
-            speedPlayer = 3f;
+            this.grounded = false;
         }
+
+        this.anim.SetBool("jump", !this.grounded);   
+    }
+
+
+
+    private void Move()
+    {
+        float verticalAxis = Input.GetAxis("Vertical");
+        float horizontalAxis = Input.GetAxis("Horizontal");
+
+        Vector3 movement = this.transform.forward * verticalAxis + this.transform.right * horizontalAxis;
+        movement.Normalize();
+
+        this.transform.position += movement * 0.04f;
+
+        this.anim.SetFloat("vertical", verticalAxis);
+        this.anim.SetFloat("horizontal", horizontalAxis);
+
 
     }
+
 }
