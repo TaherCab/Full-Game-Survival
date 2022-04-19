@@ -71,6 +71,7 @@
     <Compile Include="Assets\TerrainAssets\Trees\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_Utils.cs" />
     <Compile Include="Assets\TerrainAssets\Flooded_Grounds\Scripts\FPSDisplay.cs" />
     <Compile Include="Assets\Scripts\dañoEspada.cs" />
+    <Compile Include="Assets\Scripts\SonidoPasos.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainAssets\Trees\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />
