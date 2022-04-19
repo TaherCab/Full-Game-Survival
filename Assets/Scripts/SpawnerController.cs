@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnerController : MonoBehaviour
 {
     [SerializeField] GameObject enemyPrefab;
-    [SerializeField] float spawnInterval = 1f;
-    [SerializeField] float spawnDelay = 5f;
+    [SerializeField] float spawnInterval = 20f;
+    [SerializeField] float spawnDelay = 20f;
     // Start is called before the first frame update
     void Start()
     {

@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private void Camera()
     {
         cameraAxisX += Input.GetAxis("Mouse X");
-        Debug.Log(cameraAxisX);
+        //Debug.Log(cameraAxisX);
         Quaternion angulo = Quaternion.Euler(0f, cameraAxisX, 0f);
         transform.localRotation = angulo;
     }
@@ -86,5 +86,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     }
+
+
 
 }

@@ -58,16 +58,19 @@
     <Compile Include="Assets\Scripts\SpawnerController.cs" />
     <Compile Include="Assets\Scripts\SpawnPointController.cs" />
     <Compile Include="Assets\TerrainAssets\AQUAS-Lite\Scripts\AQUAS_Lite_CamNav.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
     <Compile Include="Assets\TerrainAssets\Flooded_Grounds\Scripts\WaterFloat.cs" />
+    <Compile Include="Assets\Scripts\DatosEnemigos.cs" />
     <Compile Include="Assets\TerrainAssets\Flooded_Grounds\Scripts\FPSController\CharController_Motor.cs" />
+    <Compile Include="Assets\Scripts\enemyDamage.cs" />
     <Compile Include="Assets\TerrainAssets\AQUAS-Lite\Scripts\AQUAS_Lite_Camera.cs" />
+    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EnemyMovement.cs" />
-    <Compile Include="Assets\Scripts\PowerUp.cs" />
+    <Compile Include="Assets\Scripts\combat.cs" />
+    <Compile Include="Assets\Scripts\CameraPlayer.cs" />
     <Compile Include="Assets\TerrainAssets\Trees\Render Pipeline Support\Built-in RP\CTI Runtime Components\Scripts\CTI_Utils.cs" />
     <Compile Include="Assets\TerrainAssets\Flooded_Grounds\Scripts\FPSDisplay.cs" />
-    <Compile Include="Assets\Scripts\combat.cs" />
-    <Compile Include="Assets\Scripts\PlayerMovement.cs" />
-    <Compile Include="Assets\Scripts\CameraPlayer.cs" />
+    <Compile Include="Assets\Scripts\dañoEspada.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TerrainAssets\Trees\Render Pipeline Support\Built-in RP\CTI Runtime Components\Shaders\CTI_LOD_Bark_Array_301.shader" />
