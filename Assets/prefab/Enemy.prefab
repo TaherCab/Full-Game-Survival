@@ -1583,7 +1583,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a160d156b94f8c4191be991001acb44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vidaEnemigos: 40
+  vidaEnemigos: 10
 --- !u!114 &8637198878216257627
 MonoBehaviour:
   m_ObjectHideFlags: 0

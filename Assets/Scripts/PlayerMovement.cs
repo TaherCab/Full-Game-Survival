@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public Animator anim;
@@ -21,16 +22,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Grounded();
-        Jump();
-        Move();
-        Camera();
-        
-        if (Input.GetMouseButtonDown(0))
+        if (!PauseMenu.isPaused)
         {
-            anim.SetTrigger("Attack");
-        }
+            Grounded();
+            Jump();
+            Move();
+            Camera();
 
+            if (Input.GetMouseButtonDown(0))
+            {
+                anim.SetTrigger("Attack");
+            }
+        }
 
     }
 
@@ -73,6 +76,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+
+        
         float verticalAxis = Input.GetAxis("Vertical");
         float horizontalAxis = Input.GetAxis("Horizontal");
 
