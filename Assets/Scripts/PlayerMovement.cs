@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask layerMask;
     public bool grounded;
     float cameraAxisX = 0f;
-   
+    private float speedPlayer = 2f;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,17 +77,31 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
 
-        
+
         float verticalAxis = Input.GetAxis("Vertical");
         float horizontalAxis = Input.GetAxis("Horizontal");
 
         Vector3 movement = this.transform.forward * verticalAxis + this.transform.right * horizontalAxis;
         movement.Normalize();
 
-        this.transform.position += movement * 0.04f;
+        this.transform.position += movement * speedPlayer * Time.deltaTime;
 
         this.anim.SetFloat("vertical", verticalAxis);
         this.anim.SetFloat("horizontal", horizontalAxis);
+
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speedPlayer = 3f;
+            anim.SetBool("Run", true);
+        }
+
+        else
+        {
+            speedPlayer = 2f;
+            anim.SetBool("Run", false);
+        }
+
 
 
     }
